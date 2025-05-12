@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tela de Login e Cadastro</title>
+  <style>
+    :root {
+      --azul-marinho: #1b1f3b;
+      --azul-claro: #4ea8de;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--azul-marinho);
+      color: var(--azul-claro);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #2a2f4a;
+      padding: 30px;
+      border-radius: 10px;
+      width: 320px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--azul-claro);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      color: var(--azul-claro);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid var(--azul-claro);
+      border-radius: 5px;
+      background-color: #1b1f3b;
+      color: white;
+    }
+
+    .checkbox-group {
+      margin-top: 10px;
+    }
+
+    .checkbox-group label {
+      display: block;
+      font-size: 14px;
+      color: var(--azul-claro);
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: var(--azul-claro);
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3b90c5;
+    }
+
+    .toggle {
+      background: none;
+      border: none;
+      color: var(--azul-claro);
+      cursor: pointer;
+      margin-top: 10px;
+      display: block;
+      text-align: center;
+    }
+
+    .toggle:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="login-container">
+  <h2>Login</h2>
+  <label for="login-email">E-mail</label>
+  <input type="email" id="login-email" required />
+
+  <label for="login-password">Senha</label>
+  <input type="password" id="login-password" required />
+
+  <button>Entrar</button>
+  <button class="toggle" onclick="mostrarCadastro()">Criar conta</button>
+</div>
+
+<div class="container" id="cadastro-container" style="display:none;">
+  <h2>Cadastro</h2>
+  <label for="nome">Nome</label>
+  <input type="text" id="nome" required />
+
+  <label for="idade">Idade</label>
+  <input type="number" id="idade" required />
+
+  <label for="email">E-mail</label>
+  <input type="email" id="email" required />
+
+  <label>Gêneros favoritos</label>
+  <div class="checkbox-group">
+    <label><input type="checkbox" name="genero" value="FPS" /> FPS</label>
+    <label><input type="checkbox" name="genero" value="RPG" /> RPG</label>
+    <label><input type="checkbox" name="genero" value="Esporte" /> Esporte</label>
+    <label><input type="checkbox" name="genero" value="Corrida" /> Corrida</label>
+    <label><input type="checkbox" name="genero" value="Terror" /> Terror</label>
+  </div>
+
+  <button>Cadastrar</button>
+  <button class="toggle" onclick="mostrarLogin()">Já tem conta?</button>
+</div>
+
+<script>
+  function mostrarCadastro() {
+    document.getElementById('login-container').style.display = 'none';
+    document.getElementById('cadastro-container').style.display = 'block';
+  }
+
+  function mostrarLogin() {
+    document.getElementById('login-container').style.display = 'block';
+    document.getElementById('cadastro-container').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
